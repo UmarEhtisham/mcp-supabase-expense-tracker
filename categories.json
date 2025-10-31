@@ -1,0 +1,208 @@
+{
+  "categories": [
+    {
+      "name": "Grocery",
+      "subcategories": [
+        "Fruits & Vegetables",
+        "Dairy & Eggs",
+        "Meat & Poultry",
+        "Bakery",
+        "Beverages",
+        "Snacks",
+        "Staples & Cooking",
+        "Frozen Foods",
+        "General"
+      ]
+    },
+    {
+      "name": "Food & Dining",
+      "subcategories": [
+        "Restaurants",
+        "Fast Food",
+        "Cafes & Coffee",
+        "Takeout & Delivery",
+        "Street Food",
+        "Desserts & Sweets",
+        "General"
+      ]
+    },
+    {
+      "name": "Transportation",
+      "subcategories": [
+        "Fuel & Gas",
+        "Public Transport",
+        "Taxi & Ride Share",
+        "Vehicle Maintenance",
+        "Parking",
+        "Tolls",
+        "General"
+      ]
+    },
+    {
+      "name": "Shopping",
+      "subcategories": [
+        "Clothing",
+        "Shoes",
+        "Accessories",
+        "Electronics",
+        "Books & Magazines",
+        "Gifts",
+        "Home Goods",
+        "Personal Care",
+        "General"
+      ]
+    },
+    {
+      "name": "Entertainment",
+      "subcategories": [
+        "Movies & Cinema",
+        "Games & Gaming",
+        "Sports & Recreation",
+        "Hobbies",
+        "Events & Concerts",
+        "Subscriptions",
+        "General"
+      ]
+    },
+    {
+      "name": "Healthcare",
+      "subcategories": [
+        "Doctor Visits",
+        "Medicines",
+        "Dental",
+        "Vision",
+        "Lab Tests",
+        "Health Insurance",
+        "Pharmacy",
+        "General"
+      ]
+    },
+    {
+      "name": "Utilities",
+      "subcategories": [
+        "Electricity",
+        "Water",
+        "Gas",
+        "Internet",
+        "Phone",
+        "Cable/Streaming",
+        "General"
+      ]
+    },
+    {
+      "name": "Education",
+      "subcategories": [
+        "Tuition Fees",
+        "Books & Supplies",
+        "Courses & Training",
+        "Online Learning",
+        "Stationery",
+        "General"
+      ]
+    },
+    {
+      "name": "Housing",
+      "subcategories": [
+        "Rent",
+        "Mortgage",
+        "Maintenance",
+        "Repairs",
+        "Furniture",
+        "Appliances",
+        "General"
+      ]
+    },
+    {
+      "name": "Personal Care",
+      "subcategories": [
+        "Salon & Haircut",
+        "Spa & Wellness",
+        "Cosmetics",
+        "Grooming Products",
+        "General"
+      ]
+    },
+    {
+      "name": "Travel",
+      "subcategories": [
+        "Flights",
+        "Hotels",
+        "Vacation",
+        "Travel Insurance",
+        "Luggage",
+        "General"
+      ]
+    },
+    {
+      "name": "Fitness",
+      "subcategories": [
+        "Gym Membership",
+        "Personal Training",
+        "Sports Equipment",
+        "Fitness Classes",
+        "General"
+      ]
+    },
+    {
+      "name": "Kids",
+      "subcategories": [
+        "Childcare",
+        "Toys",
+        "School Activities",
+        "Clothes",
+        "Baby Products",
+        "General"
+      ]
+    },
+    {
+      "name": "Pets",
+      "subcategories": [
+        "Pet Food",
+        "Veterinary",
+        "Pet Supplies",
+        "Grooming",
+        "General"
+      ]
+    },
+    {
+      "name": "Insurance",
+      "subcategories": [
+        "Life Insurance",
+        "Health Insurance",
+        "Vehicle Insurance",
+        "Home Insurance",
+        "General"
+      ]
+    },
+    {
+      "name": "Investments",
+      "subcategories": [
+        "Stocks",
+        "Mutual Funds",
+        "Savings",
+        "Retirement",
+        "General"
+      ]
+    },
+    {
+      "name": "Donations",
+      "subcategories": [
+        "Charity",
+        "Religious",
+        "Zakat",
+        "Sadaqah",
+        "General"
+      ]
+    },
+    {
+      "name": "Miscellaneous",
+      "subcategories": [
+        "Bank Fees",
+        "ATM Fees",
+        "Legal",
+        "Other",
+        "General"
+      ]
+    }
+  ]
+}
