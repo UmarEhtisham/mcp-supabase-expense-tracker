@@ -1,67 +1,69 @@
-
-from contextlib import contextmanager
+from contextlib import asynccontextmanager
 from database.database import SessionLocal, engine, Base
 from database import crud, schemas
 from fastmcp import FastMCP
 from pathlib import Path
 
-Base.metadata.create_all(bind=engine)
+# Create tables asynchronously
+async def init_db():
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
 
 BASE_DIR = Path(__file__).resolve().parent
 
-@contextmanager
-def get_db_session():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
+@asynccontextmanager
+async def get_db_session():
+    async with SessionLocal() as db:
+        try:
+            yield db
+        finally:
+            await db.close()
 
-mcp = FastMCP(name = "ExpenseTracker")
+mcp = FastMCP(name="ExpenseTracker")
 
 @mcp.tool
-def create_record(record: schemas.RecordCreate):
+async def create_record(record: schemas.RecordCreate):
     """
     Create a new expense record in the database.
     """
-    with get_db_session() as db:
-        new_record = crud.create_record(db, record)
+    async with get_db_session() as db:
+        new_record = await crud.create_record(db, record)
         return new_record
 
 @mcp.tool
-def get_record(record_id: int):
+async def get_record(record_id: int):
     """
     Retrieve an expense record by its ID.
     """
-    with get_db_session() as db:
-        record = crud.get_record(db, record_id)
+    async with get_db_session() as db:
+        record = await crud.get_record(db, record_id)
         return record
     
 @mcp.tool
-def get_records():
+async def get_records():
     """
     Retrieve all expense records.
     """
-    with get_db_session() as db:
-        records = crud.get_records(db)
+    async with get_db_session() as db:
+        records = await crud.get_records(db)
         return records
     
 @mcp.tool
-def update_record(record_id: int, record: schemas.RecordUpdate):
+async def update_record(record_id: int, record: schemas.RecordUpdate):
     """
     Update an existing expense record by its ID.
     """
-    with get_db_session() as db:
-        updated_record = crud.update_record(db, record_id, record)
+    async with get_db_session() as db:
+        updated_record = await crud.update_record(db, record_id, record)
         return updated_record
 
 @mcp.tool
-def delete_record(record_id: int):
+async def delete_record(record_id: int):
     """
     Delete an expense record by its ID.
     """
-    with get_db_session() as db:
-        deleted_record = crud.delete_record(db, record_id)
+    async with get_db_session() as db:
+        deleted_record = await crud.delete_record(db, record_id)
         return deleted_record
     
 from pathlib import Path
@@ -92,6 +94,11 @@ def get_categories():
         })
     
 if __name__ == "__main__":
-    # mcp.run()
+    import asyncio
+    
+    # Initialize database tables
+    asyncio.run(init_db())
+    
+    # Run the MCP server
+    # mcp.run(transport="stdio")
     mcp.run(transport="http", host="0.0.0.0", port=8000)
-

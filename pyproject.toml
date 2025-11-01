@@ -5,6 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "asyncpg>=0.30.0",
     "fastmcp>=2.13.0.2",
     "psycopg2-binary>=2.9.11",
     "pydantic-settings>=2.11.0",

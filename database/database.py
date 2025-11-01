@@ -1,23 +1,28 @@
-from sqlalchemy import create_engine
-from sqlalchemy.orm import declarative_base, sessionmaker
-from sqlalchemy.pool import NullPool
+# database.py
+from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncSession
+from sqlalchemy.orm import declarative_base
 import os
 from dotenv import load_dotenv
-# from sqlalchemy import text
 
 load_dotenv()
 
-DATABASE_URL = os.getenv("DATABASE_URL")
+# -----------------------
+# Use DIRECT_URL for ORM + async
+# -----------------------
+DATABASE_URL = os.getenv("DATABASE_URL",)
 
-engine = create_engine(
+# ✅ Async engine for SQLAlchemy ORM
+engine = create_async_engine(
     DATABASE_URL,
-    poolclass = NullPool,
-    pool_pre_ping=True
-    )
+    echo=False,  # Set True for debugging SQL queries
+)
 
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+# Async session factory
+SessionLocal = async_sessionmaker(
+    bind=engine,
+    class_=AsyncSession,
+    expire_on_commit=False
+)
 
+# Base class for ORM models
 Base = declarative_base()
-
-
-
